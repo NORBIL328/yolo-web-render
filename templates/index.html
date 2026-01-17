@@ -79,7 +79,6 @@
     </style>
 </head>
 <body>
-
     <h1>Detección YOLO - Cliente Web</h1>
 
     <div class="video-container">
@@ -93,7 +92,6 @@
     <button id="toggleBtn" class="btn-start" onclick="toggleCamera()">Encender Cámara</button>
     
     <div class="status" id="statusText">Estado: Inactivo</div>
-
     <script>
         const video = document.getElementById('webcamVideo');
         const canvas = document.getElementById('captureCanvas');
@@ -105,7 +103,6 @@
 
         let isStreaming = false;
         let localStream = null;
-
         async function toggleCamera() {
             if (!isStreaming) {
                 // --- ENCENDER ---
@@ -140,7 +137,6 @@
                 // --- APAGAR ---
                 isStreaming = false;
                 statusText.innerText = "Deteniendo...";
-
                 // 1. Detener todos los 'tracks' de video (apaga la luz de la webcam)
                 if (localStream) {
                     localStream.getTracks().forEach(track => track.stop());
@@ -158,7 +154,6 @@
                 statusText.innerText = "Estado: Inactivo";
             }
         }
-
         function sendFrameLoop() {
             // Si el usuario apagó, detenemos el bucle
             if (!isStreaming) return;
